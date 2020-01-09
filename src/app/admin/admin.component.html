@@ -1,0 +1,18 @@
+<p>admin works!</p>
+
+<div class="container-fluid">
+  <div class="header-container">
+    <button
+      routerLink="users"
+      routerLinkActive="btn-secondary"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="btn btn-primary"
+    >
+      Users
+    </button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

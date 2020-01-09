@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
+
+
+.example {
+  margin-bottom: 30px;
+}
+
+.invalid {
+  border: 1px solid red;
+}
