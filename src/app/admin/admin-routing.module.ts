@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
+import { CanDeactivateUserGuard } from './users/can-deactivate-user.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'users', component: UsersComponent },
-      { path: 'user/:id', component: UserComponent }
+      {
+        path: 'user/:id',
+        component: UserComponent,
+        canDeactivate: [CanDeactivateUserGuard]
+      }
     ]
   }
 ];

@@ -12,6 +12,8 @@ import { UsPhone1Pipe } from './directives-and-pipes/us-phone1.pipe';
 import { CustomMaxLengthDirective } from './directives-and-pipes/custom-max-length.directive';
 import { DoCheckComponent } from './directives-and-pipes/do-check/do-check.component';
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
+import { ParentComponent } from './service-example/parent/parent.component';
+import { ChildComponent } from './service-example/child/child.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PathNotFoundComponent } from './path-not-found/path-not-found.component
     UsPhone1Pipe,
     CustomMaxLengthDirective,
     DoCheckComponent,
-    PathNotFoundComponent
+    PathNotFoundComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

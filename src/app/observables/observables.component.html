@@ -1,0 +1,26 @@
+<p>observables works!</p>
+
+<div class="container-fluid">
+  <div class="header-container">
+    <button
+      routerLink="observable"
+      routerLinkActive="btn-secondary"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="btn btn-primary"
+    >
+      Home
+    </button>
+    <button
+      routerLink="subjects"
+      routerLinkActive="btn-secondary"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="btn btn-primary"
+    >
+      Subjects
+    </button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

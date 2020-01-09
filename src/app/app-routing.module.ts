@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canLoad: [AuthGuard]
   },
+  {
+    path: 'rxjs',
+    loadChildren: () =>
+      import('./observables/observables.module').then(m => m.ObservablesModule)
+  },
   { path: '**', component: PathNotFoundComponent }
 ];
 

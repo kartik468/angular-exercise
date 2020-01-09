@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class CountService {
 
-  isAuthenticated = false;
+  value = '';
 
   constructor() { }
 }

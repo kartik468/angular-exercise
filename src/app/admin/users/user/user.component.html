@@ -1,10 +1,74 @@
 <div class="container-fluid" *ngIf="user">
-  <h5>User {{user.name}}!</h5>
+  <h5>User {{ user.name }}!</h5>
   <div>
     <h5>Edit user</h5>
-    <form action="">
-
+    <h6>form valid: {{userForm.valid}}</h6>
+    <form [formGroup]="userForm" autocomplete="off">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label class="control-label" for="userid">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userid"
+            formControlName="id"
+          />
+        </div>
+        <div class="form-group col-md-4">
+          <label class="control-label" for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{'is-invalid': userForm.get('name').errors}"
+            id="name"
+            formControlName="name"
+          />
+          <div *ngIf="userForm.get('name').errors?.required" class="invalid-feedback">
+            Please choose a username.
+          </div>
+          <div *ngIf="userForm.get('name').errors?.forbiddenName" class="invalid-feedback">
+            Please choose different username.
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label class="control-label" for="userName">UserName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName"
+            formControlName="username"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="website">Website</label>
+        <input
+          type="text"
+          class="form-control"
+          id="website"
+          formControlName="website"
+        />
+      </div>
     </form>
   </div>
-  <pre>{{user | json}}</pre>
+  <pre>form user: {{ userForm.value | json }}</pre>
+  <pre>input user: {{ user | json }}</pre>
 </div>
