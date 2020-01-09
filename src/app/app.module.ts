@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { DoCheckComponent } from './directives-and-pipes/do-check/do-check.compo
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
 import { ParentComponent } from './service-example/parent/parent.component';
 import { ChildComponent } from './service-example/child/child.component';
+import { LoggerInterceptorService } from './logger-interceptor.service';
+import { AuthHeaderInterceptorService } from './auth-header-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,18 @@ import { ChildComponent } from './service-example/child/child.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggerInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHeaderInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
