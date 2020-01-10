@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ObservablesComponent } from './observables.component';
 import { SimpleObservableComponent } from './simple-observable/simple-observable.component';
 import { SubjectsComponent } from './subjects/subjects.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     component: ObservablesComponent,
     children: [
       { path: 'observable', component: SimpleObservableComponent },
-      { path: 'subjects', component: SubjectsComponent }
+      { path: 'subjects', component: SubjectsComponent },
+      { path: 'operators', component: OperatorsComponent }
     ]
   }
 ];
