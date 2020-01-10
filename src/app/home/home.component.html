@@ -1,9 +1,39 @@
 <p>home works!</p>
 
-<h4>Service exapmle</h4>
-<kar-parent>
-  <kar-child></kar-child>
-</kar-parent>
-<kar-parent>
-  <kar-child></kar-child>
-</kar-parent>
+<div class="container-fluid">
+  <h4>Service exapmle</h4>
+  <kar-parent>
+    <kar-child></kar-child>
+  </kar-parent>
+  <kar-parent>
+    <kar-child></kar-child>
+  </kar-parent>
+
+</div>
+
+
+
+<div class="container-fluid template-driven-form">
+  <h4>Form control value change prevent in template driven form</h4>
+  <select [ngModel]="selectedDevice" (ngModelChange)="onDeviceChange($event)" name="sel2">
+    <option [value]="i" *ngFor="let i of devices">{{i}}</option>
+  </select>
+  <h6>{{selectedDevice}}</h6>
+
+  <input type="text" class="from-control" [ngModel]="textValue" (ngModelChange)="onChange($event)">
+
+  <h6>{{textValue}}</h6>
+</div>
+
+<div class="container-fluid">
+  <h4>Form control value change prevent in reactive form pending</h4>
+
+  <form [formGroup]="reactiveForm">
+    <div class="form-group">
+      <label for="">Example without startWith</label>
+      <input type="text" class="form-control" formControlName='example1'>
+    </div>
+  </form>
+
+  <pre>{{reactiveForm.value | json}}</pre>
+</div>
