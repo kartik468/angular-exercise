@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountService } from 'src/app/count.service';
+import { CountService } from './../../../app/count.service';
 
 @Component({
   selector: 'kar-parent',

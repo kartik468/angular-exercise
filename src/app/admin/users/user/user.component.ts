@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../users.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from 'src/app/custom-validators';
+import { CustomValidators } from './../../../custom-validators';
 
 @Component({
   selector: 'kar-user',
