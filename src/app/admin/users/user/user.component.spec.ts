@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -21,5 +23,11 @@ describe('UserComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    const nativeEl: HTMLElement = fixture.nativeElement;
+    const debugEl: DebugElement = fixture.debugElement;
+    // debugEl.query(By.dir)
+    // Promise.reso
+    // fixture.
+    // By.all()
   });
 });

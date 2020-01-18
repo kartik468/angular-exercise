@@ -2,8 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../users.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from './../../../custom-validators';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormArray,
+  FormControl
+} from '@angular/forms';
+import { CustomValidators } from 'src/app/custom-validators';
 
 @Component({
   selector: 'kar-user',
@@ -22,7 +28,9 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this.createUserFormUsingFormBuilder();
     this.createUserForm();
+    // const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = +paramMap.get('id');
       this.user =
@@ -43,7 +51,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  createUserForm() {
+  createUserFormUsingFormBuilder() {
     this.userForm = this.fb.group({
       id: ['', [Validators.required]],
       name: [
@@ -55,13 +63,49 @@ export class UserComponent implements OnInit {
       address: this.fb.group({
         street: ['', [Validators.required]]
       }),
+      hobbies: this.fb.array([
+        this.fb.control('h1', [Validators.required]),
+        this.fb.control('g1', [Validators.required])
+      ]),
       phone: ['', [Validators.required]],
       website: ['', [Validators.required]]
     });
   }
 
+  createUserForm() {
+    this.userForm = new FormGroup({
+      id: new FormControl('', {
+        updateOn: 'blur',
+        validators: [Validators.required]
+      }),
+      name: new FormControl('', [
+        Validators.required,
+        CustomValidators.forbiddenNames(['kartik'])
+      ]),
+      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      address: new FormGroup({
+        street: new FormControl('', [Validators.required])
+      }),
+      hobbies: new FormArray([
+        new FormControl('h1', [Validators.required]),
+        new FormControl('g1', [Validators.required])
+      ]),
+      phone: new FormControl('', [Validators.required]),
+      website: new FormControl('', [Validators.required])
+    });
+  }
+
+  get hobbiesFormArray() {
+    return this.userForm.get('hobbies') as FormArray;
+  }
+
   setInitialValuesToForm() {
     this.userForm.patchValue(this.user);
+  }
+
+  onAddHobby() {
+    this.hobbiesFormArray.push(new FormControl('', [Validators.required]));
   }
 
   canDeactivate(): boolean {

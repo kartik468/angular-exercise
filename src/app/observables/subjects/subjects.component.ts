@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, Subscription, BehaviorSubject } from 'rxjs';
+import { MissionService } from './mission.service';
 
 @Component({
   selector: 'kar-subjects',
@@ -15,11 +16,18 @@ export class SubjectsComponent implements OnInit, OnDestroy {
   bSubjectValue: string;
   bSubjectValueSubscription: Subscription;
 
-  constructor() { }
+
+  missionAnnouncedSubscription: Subscription;
+  missionConfirmedSubscription: Subscription;
+
+  constructor(
+    private missionService: MissionService
+  ) { }
 
   ngOnInit() {
     this.createSubject();
     this.createBehavioralSubject();
+    this.testAsObservable();
   }
 
   createSubject() {
@@ -42,6 +50,22 @@ export class SubjectsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       sub.next('b second value');
     }, 1000);
+  }
+
+  testAsObservable() {
+    this.missionService.missionAnnounced$.subscribe((mission) => {
+      console.log('mission announced' , mission);
+    });
+    this.missionService.missionConfirmed$.subscribe((astronaut) => {
+      console.log('mission confirmed by', astronaut);
+    });
+    this.missionService.announceMission('mission1');
+    this.missionService.confirmMission('kartik');
+
+    setTimeout(() => {
+      this.missionService.announceMission('mission2');
+      this.missionService.confirmMission('kartik1');
+    }, 3000);
   }
 
   ngOnDestroy() {

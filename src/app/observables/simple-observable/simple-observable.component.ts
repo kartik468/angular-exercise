@@ -37,6 +37,7 @@ export class SimpleObservableComponent implements OnInit {
     );
 
     observable.subscribe(val => {
+      console.log('only last value emitted', val);
       this.emittedValue = val;
     });
   }
