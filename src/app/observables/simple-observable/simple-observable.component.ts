@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { map, tap, last, delay } from 'rxjs/operators';
 
 @Component({
@@ -7,9 +7,11 @@ import { map, tap, last, delay } from 'rxjs/operators';
   templateUrl: './simple-observable.component.html',
   styleUrls: ['./simple-observable.component.scss']
 })
-export class SimpleObservableComponent implements OnInit {
+export class SimpleObservableComponent implements OnInit, OnDestroy {
   emittedValue: number;
   emittedValuePromise: string;
+
+  subscription1: Subscription;
 
   constructor() {}
 
@@ -36,7 +38,7 @@ export class SimpleObservableComponent implements OnInit {
       last()
     );
 
-    observable.subscribe(val => {
+    this.subscription1 = observable.subscribe(val => {
       console.log('only last value emitted', val);
       this.emittedValue = val;
     });
@@ -53,5 +55,9 @@ export class SimpleObservableComponent implements OnInit {
         console.log('From Promise:', result);
         this.emittedValuePromise = result;
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription1.unsubscribe();
   }
 }

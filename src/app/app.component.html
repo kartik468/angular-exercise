@@ -1,45 +1,53 @@
-<div class="container-fluid">
-  <div class="header-container">
-    <button
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a
       routerLink="/home"
-      routerLinkActive="btn-secondary"
+      routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="btn btn-primary"
+      class="nav-link"
     >
       Home
-    </button>
-    <button
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
       routerLink="/directives-and-pipes"
-      routerLinkActive="btn-secondary"
+      routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="btn btn-primary"
+      class="nav-link"
     >
       Pipes/Directives
-    </button>
-    <button
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
       routerLink="/login"
-      routerLinkActive="btn-secondary"
+      routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="btn btn-primary"
+      class="nav-link"
     >
       Login
-    </button>
-    <button
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
       routerLink="/admin"
-      routerLinkActive="btn-secondary"
-      class="btn btn-primary"
+      routerLinkActive="active"
+      class="nav-link"
     >
       Admin
-    </button>
-    <button
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
       routerLink="/rxjs"
-      routerLinkActive="btn-secondary"
-      class="btn btn-primary"
+      routerLinkActive="active"
+      class="nav-link"
     >
       RxJs
-    </button>
-  </div>
-</div>
+    </a>
+  </li>
+</ul>
 
 <div class="container-fluid">
   <router-outlet></router-outlet>

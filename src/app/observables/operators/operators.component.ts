@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { of, interval } from 'rxjs';
+import { of, interval, Subscription } from 'rxjs';
 import { mergeMap, switchMap, map, take, tap } from 'rxjs/operators';
 
 @Component({
@@ -8,11 +8,14 @@ import { mergeMap, switchMap, map, take, tap } from 'rxjs/operators';
   templateUrl: './operators.component.html',
   styleUrls: ['./operators.component.scss']
 })
-export class OperatorsComponent implements OnInit {
+export class OperatorsComponent implements OnInit, OnDestroy {
   constructor() {}
 
   mergeMapMessages = [];
   switchMapMessages = [];
+
+  subscription1: Subscription;
+  subscription2: Subscription;
 
   ngOnInit() {
     this.switchMapExample();
@@ -37,7 +40,7 @@ export class OperatorsComponent implements OnInit {
         )
       )
     );
-    result.subscribe(finalValue => {
+    this.subscription1 = result.subscribe(finalValue => {
       this.mergeMapMessages.push(finalValue);
       console.log(finalValue);
     });
@@ -61,9 +64,14 @@ export class OperatorsComponent implements OnInit {
         )
       )
     );
-    result.subscribe(finalValue => {
+    this.subscription2 = result.subscribe(finalValue => {
       this.switchMapMessages.push(finalValue);
       console.log(finalValue);
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 }
