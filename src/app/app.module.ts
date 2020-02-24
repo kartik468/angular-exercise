@@ -16,6 +16,7 @@ import { ParentComponent } from './service-example/parent/parent.component';
 import { ChildComponent } from './service-example/child/child.component';
 import { LoggerInterceptorService } from './logger-interceptor.service';
 import { AuthHeaderInterceptorService } from './auth-header-interceptor.service';
+import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/lazy-load-parent.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthHeaderInterceptorService } from './auth-header-interceptor.service'
     DoCheckComponent,
     PathNotFoundComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    LazyLoadParentComponent
   ],
   imports: [
     BrowserModule,
