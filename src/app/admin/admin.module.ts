@@ -7,13 +7,8 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [AdminComponent, UsersComponent, UserComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    AdminRoutingModule
-  ]
+  imports: [CommonModule, ReactiveFormsModule, AdminRoutingModule]
 })
-export class AdminModule { }
+export class AdminModule {}

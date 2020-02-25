@@ -8,9 +8,8 @@ describe('ParentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParentComponent ]
-    })
-    .compileComponents();
+      declarations: [ParentComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

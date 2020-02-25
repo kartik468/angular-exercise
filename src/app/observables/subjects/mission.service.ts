@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MissionService {
-
   // observable string sources
   private missionAnnouncedSource = new Subject<string>();
   private missionConfirmedSource = new Subject<string>();
@@ -13,8 +12,7 @@ export class MissionService {
   // observable string streams
   missionAnnounced$ = this.missionAnnouncedSource.asObservable();
   missionConfirmed$ = this.missionConfirmedSource.asObservable();
-  constructor() { }
-
+  constructor() {}
 
   announceMission(mission: string) {
     this.missionAnnouncedSource.next(mission);

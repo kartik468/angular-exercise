@@ -6,15 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./promise-test.component.scss']
 })
 export class PromiseTestComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-
     const p1 = new Promise((resolve, reject) => {
       console.log('inside promise..');
       resolve('kartik');
     });
   }
-
 }

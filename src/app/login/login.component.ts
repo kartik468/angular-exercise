@@ -8,14 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
     this.authService.isAuthenticated = true;

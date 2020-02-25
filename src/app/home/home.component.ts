@@ -16,10 +16,7 @@ export class HomeComponent implements OnInit {
 
   reactiveForm: FormGroup;
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private fb: FormBuilder
-  ) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef, private fb: FormBuilder) {}
 
   onChange(val) {
     console.log('PREV1', this.textValue);
@@ -70,17 +67,15 @@ export class HomeComponent implements OnInit {
     // });
     const control = this.reactiveForm.get('example1');
 
-    control.valueChanges
-      .pipe(startWith(''), pairwise())
-      .subscribe(([prev, cur]) => {
-        console.log('example 1 prev val', prev);
-        console.log('example 1 cur val', cur);
-        console.log('---');
+    control.valueChanges.pipe(startWith(''), pairwise()).subscribe(([prev, cur]) => {
+      console.log('example 1 prev val', prev);
+      console.log('example 1 cur val', cur);
+      console.log('---');
 
-        // if (confirm('value will be changed')) {
-        // } else {
-        //   control.setValue(prev, { emitEvent: false });
-        // }
-      });
+      // if (confirm('value will be changed')) {
+      // } else {
+      //   control.setValue(prev, { emitEvent: false });
+      // }
+    });
   }
 }

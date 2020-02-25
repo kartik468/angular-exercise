@@ -7,12 +7,7 @@ import { CountService } from './../../count.service';
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent implements OnInit {
+  constructor(public service: CountService) {}
 
-  constructor(
-    public service: CountService
-  ) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

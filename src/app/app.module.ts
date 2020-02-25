@@ -32,13 +32,7 @@ import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/la
     ChildComponent,
     LazyLoadParentComponent
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -53,4 +47,4 @@ import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/la
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'usPhone1'
 })
 export class UsPhone1Pipe implements PipeTransform {
-
   phoneRegex = /^(\d{2})(\d{3})$/;
 
   transform(value: string, ...args: any[]): string {

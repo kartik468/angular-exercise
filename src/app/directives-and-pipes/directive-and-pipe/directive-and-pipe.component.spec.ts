@@ -8,9 +8,8 @@ describe('DirectiveAndPipeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectiveAndPipeComponent ]
-    })
-    .compileComponents();
+      declarations: [DirectiveAndPipeComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

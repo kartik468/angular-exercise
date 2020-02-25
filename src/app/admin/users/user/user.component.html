@@ -2,24 +2,19 @@
   <h5>User {{ user.name }}!</h5>
   <div>
     <h5>Edit user</h5>
-    <h6>form valid: {{userForm.valid}}</h6>
+    <h6>form valid: {{ userForm.valid }}</h6>
     <form [formGroup]="userForm" autocomplete="off">
       <div class="form-row">
         <div class="form-group col-md-4">
           <label class="control-label" for="userid">Id</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userid"
-            formControlName="id"
-          />
+          <input type="text" class="form-control" id="userid" formControlName="id" />
         </div>
         <div class="form-group col-md-4">
           <label class="control-label" for="name">Name</label>
           <input
             type="text"
             class="form-control"
-            [ngClass]="{'is-invalid': userForm.get('name').errors}"
+            [ngClass]="{ 'is-invalid': userForm.get('name').errors }"
             id="name"
             formControlName="name"
           />
@@ -32,47 +27,27 @@
         </div>
         <div class="form-group col-md-4">
           <label class="control-label" for="userName">UserName</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userName"
-            formControlName="username"
-          />
+          <input type="text" class="form-control" id="userName" formControlName="username" />
         </div>
       </div>
       <div class="form-group">
         <label class="control-label" for="email">Email</label>
-        <input
-          type="text"
-          class="form-control"
-          id="email"
-          formControlName="email"
-        />
+        <input type="text" class="form-control" id="email" formControlName="email" />
       </div>
       <div class="form-group">
         <label class="control-label" for="phone">Phone</label>
-        <input
-          type="text"
-          class="form-control"
-          id="phone"
-          formControlName="phone"
-        />
+        <input type="text" class="form-control" id="phone" formControlName="phone" />
       </div>
       <div class="form-group">
         <label class="control-label" for="website">Website</label>
-        <input
-          type="text"
-          class="form-control"
-          id="website"
-          formControlName="website"
-        />
+        <input type="text" class="form-control" id="website" formControlName="website" />
       </div>
       <!-- <div class="form-row"> -->
       <!-- </div> -->
       <div class="form-group" formArrayName="hobbies">
         <label class="form-row control-label">Hobbies</label>
         <div class="form-group" *ngFor="let hobby of hobbiesFormArray.controls; let i = index">
-          <input type="text" class="form-control" [formControlName]="i" [ngClass]="{'is-invalid': hobby.errors?.required}">
+          <input type="text" class="form-control" [formControlName]="i" [ngClass]="{ 'is-invalid': hobby.errors?.required }" />
         </div>
       </div>
       <div class="btn btn-primary" (click)="onAddHobby()">Add Hobby</div>

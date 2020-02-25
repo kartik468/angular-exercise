@@ -17,14 +17,14 @@ export class AppComponent implements OnInit {
     const p1 = new Promise((resolve, reject) => {
       resolve('3');
     });
-    p1.then((val) => {
+    p1.then(val => {
       console.log('p1', val);
     });
-    p1.then((val) => {
+    p1.then(val => {
       console.log('p1', val);
     });
     const p2 = Promise.resolve('4');
-    p2.then((val) => {
+    p2.then(val => {
       console.log(val);
     });
 

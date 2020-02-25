@@ -6,13 +6,12 @@ import { Component, OnInit, Input, SimpleChanges, OnChanges, DoCheck } from '@an
   styleUrls: ['./do-check.component.scss']
 })
 export class DoCheckComponent implements OnInit, DoCheck {
-
   @Input()
   hero;
 
   previousHeroName;
 
-  constructor() { }
+  constructor() {}
 
   // ngOnChanges(simpleChanges: SimpleChanges) {
   //   console.log(simpleChanges.hero.currentValue);
@@ -28,5 +27,4 @@ export class DoCheckComponent implements OnInit, DoCheck {
       console.log('hero name changed');
     }
   }
-
 }

@@ -14,12 +14,10 @@ export class CustomMaxLengthDirective implements OnInit, OnChanges {
 
   @HostListener('input') onInputValueChange() {
     this.value = this.elementRef.nativeElement.value;
-    this.isInvalid = (this.value.length > this.maxLength) ? true : false;
+    this.isInvalid = this.value.length > this.maxLength ? true : false;
   }
 
-  constructor(
-    private elementRef: ElementRef
-  ) { }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnChanges() {
     // console.log(this.inputValue);
@@ -29,7 +27,6 @@ export class CustomMaxLengthDirective implements OnInit, OnChanges {
     console.log(this.elementRef.nativeElement.value);
     this.value = this.inputValue;
     // this.onInputValueChange();
-    this.isInvalid = (this.value.length > this.maxLength) ? true : false;
+    this.isInvalid = this.value.length > this.maxLength ? true : false;
   }
-
 }

@@ -8,21 +8,16 @@ import { MissionService } from './mission.service';
   styleUrls: ['./subjects.component.scss']
 })
 export class SubjectsComponent implements OnInit, OnDestroy {
-
   subjectValue: string;
   subjectValueSubscription: Subscription;
-
 
   bSubjectValue: string;
   bSubjectValueSubscription: Subscription;
 
-
   missionAnnouncedSubscription: Subscription;
   missionConfirmedSubscription: Subscription;
 
-  constructor(
-    private missionService: MissionService
-  ) { }
+  constructor(private missionService: MissionService) {}
 
   ngOnInit() {
     this.createSubject();
@@ -33,7 +28,7 @@ export class SubjectsComponent implements OnInit, OnDestroy {
   createSubject() {
     const sub = new Subject<string>();
     sub.next('first value');
-    this.subjectValueSubscription = sub.subscribe((val) => {
+    this.subjectValueSubscription = sub.subscribe(val => {
       this.subjectValue = val;
     });
     sub.next('second value');
@@ -44,7 +39,7 @@ export class SubjectsComponent implements OnInit, OnDestroy {
 
   createBehavioralSubject() {
     const sub = new BehaviorSubject<string>('initial value');
-    this.bSubjectValueSubscription = sub.subscribe((val) => {
+    this.bSubjectValueSubscription = sub.subscribe(val => {
       this.bSubjectValue = val;
     });
     setTimeout(() => {
@@ -53,10 +48,10 @@ export class SubjectsComponent implements OnInit, OnDestroy {
   }
 
   testAsObservable() {
-    this.missionService.missionAnnounced$.subscribe((mission) => {
-      console.log('mission announced' , mission);
+    this.missionService.missionAnnounced$.subscribe(mission => {
+      console.log('mission announced', mission);
     });
-    this.missionService.missionConfirmed$.subscribe((astronaut) => {
+    this.missionService.missionConfirmed$.subscribe(astronaut => {
       console.log('mission confirmed by', astronaut);
     });
     this.missionService.announceMission('mission1');
@@ -72,5 +67,4 @@ export class SubjectsComponent implements OnInit, OnDestroy {
     this.subjectValueSubscription.unsubscribe();
     this.bSubjectValueSubscription.unsubscribe();
   }
-
 }

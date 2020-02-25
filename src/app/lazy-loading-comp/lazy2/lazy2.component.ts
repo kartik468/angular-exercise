@@ -7,11 +7,7 @@ import { Lazy2aComponent } from './lazy2a/lazy2a.component';
   styleUrls: ['./lazy2.component.scss']
 })
 export class Lazy2Component implements OnInit {
-
-  constructor(
-    private viewContainerRef: ViewContainerRef,
-    private cfr: ComponentFactoryResolver
-  ) {}
+  constructor(private viewContainerRef: ViewContainerRef, private cfr: ComponentFactoryResolver) {}
 
   ngOnInit() {
     const componentFactoryA = this.cfr.resolveComponentFactory(Lazy2aComponent);
@@ -19,5 +15,4 @@ export class Lazy2Component implements OnInit {
     this.viewContainerRef.createComponent(componentFactoryA);
     this.viewContainerRef.createComponent(componentFactoryB);
   }
-
 }

@@ -6,14 +6,9 @@ import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver } from '@
   styleUrls: ['./lazy-load-parent.component.scss']
 })
 export class LazyLoadParentComponent implements OnInit {
+  constructor(private vcRef: ViewContainerRef, private cfr: ComponentFactoryResolver) {}
 
-  constructor(
-    private vcRef: ViewContainerRef,
-    private cfr: ComponentFactoryResolver
-  ) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async getLazy1() {
     this.vcRef.clear();
@@ -26,5 +21,4 @@ export class LazyLoadParentComponent implements OnInit {
     const { Lazy2Component } = await import('../lazy2/lazy2.component');
     this.vcRef.createComponent(this.cfr.resolveComponentFactory(Lazy2Component));
   }
-
 }

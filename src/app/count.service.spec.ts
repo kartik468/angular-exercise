@@ -6,7 +6,7 @@ describe('CountService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CountService = TestBed.get(CountService);
+    const service: CountService = TestBed.inject(CountService);
     expect(service).toBeTruthy();
   });
 });

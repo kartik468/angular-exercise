@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'usPhone'
 })
 export class UsPhonePipe implements PipeTransform {
-
   regex = /^(\d{2})(\d{2})$/;
   regex1 = /^(?<first>\d{2})(?<second>\d{2})$/;
 
@@ -20,5 +19,4 @@ export class UsPhonePipe implements PipeTransform {
 
     return transformedValue;
   }
-
 }

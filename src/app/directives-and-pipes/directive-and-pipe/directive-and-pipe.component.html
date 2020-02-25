@@ -1,20 +1,19 @@
 <p>directive-and-pipe works!</p>
 
-<br>
+<br />
 <div class="example">
   <h4>custom phone pipe</h4>
-  <input type="text" [(ngModel)]="phone">
-  <div class="phone-number">{{phone | usPhone1}}</div>
+  <input type="text" [(ngModel)]="phone" />
+  <div class="phone-number">{{ phone | usPhone1 }}</div>
 </div>
 
 <div class="example">
   <h4>custom attribute directive show red border if length greater than 10</h4>
-  <input type="text" [(ngModel)]="firstName" [value]="firstName" [karCustomMaxLength]=10 [inputValue]="firstName">
+  <input type="text" [(ngModel)]="firstName" [value]="firstName" [karCustomMaxLength]="10" [inputValue]="firstName" />
 </div>
-
 
 <div class="example">
   <h4>ngDoCheck</h4>
-  <input type="text" [(ngModel)]="hero.name">
-  <kar-do-check [hero]=hero></kar-do-check>
+  <input type="text" [(ngModel)]="hero.name" />
+  <kar-do-check [hero]="hero"></kar-do-check>
 </div>

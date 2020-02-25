@@ -22,8 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'rxjs',
-    loadChildren: () =>
-      import('./observables/observables.module').then(m => m.ObservablesModule)
+    loadChildren: () => import('./observables/observables.module').then(m => m.ObservablesModule)
   },
   { path: '**', component: PathNotFoundComponent }
 ];

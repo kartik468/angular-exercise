@@ -9,12 +9,7 @@ import { CountService } from './../../../app/count.service';
   viewProviders: [CountService]
 })
 export class ParentComponent implements OnInit {
+  constructor(public service: CountService) {}
 
-  constructor(
-    public service: CountService
-  ) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

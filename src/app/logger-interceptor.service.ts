@@ -7,7 +7,6 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoggerInterceptorService implements HttpInterceptor {
-
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const started = Date.now();
     return next.handle(req).pipe(
@@ -20,5 +19,5 @@ export class LoggerInterceptorService implements HttpInterceptor {
     );
   }
 
-  constructor() { }
+  constructor() {}
 }

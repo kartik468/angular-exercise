@@ -15,7 +15,7 @@ const routes: Routes = [
       { path: 'observable', component: SimpleObservableComponent },
       { path: 'subjects', component: SubjectsComponent },
       { path: 'operators', component: OperatorsComponent },
-      { path: 'promise', component: PromiseTestComponent },
+      { path: 'promise', component: PromiseTestComponent }
     ]
   }
 ];

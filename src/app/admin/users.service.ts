@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './models/user';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-
   users: User[];
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
   getUsers() {
     return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users').pipe(
-      tap((users) => {
+      tap(users => {
         this.users = users;
       })
     );

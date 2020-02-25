@@ -8,9 +8,8 @@ describe('SimpleObservableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleObservableComponent ]
-    })
-    .compileComponents();
+      declarations: [SimpleObservableComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

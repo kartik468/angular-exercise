@@ -2,13 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../users.service';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormArray,
-  FormControl
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { CustomValidators } from 'src/app/custom-validators';
 
 @Component({
@@ -21,11 +15,7 @@ export class UserComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private userService: UsersService,
-    private fb: FormBuilder
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute, private userService: UsersService, private fb: FormBuilder) {}
 
   ngOnInit() {
     // this.createUserFormUsingFormBuilder();
@@ -33,9 +23,7 @@ export class UserComponent implements OnInit {
     // const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = +paramMap.get('id');
-      this.user =
-        this.userService.users &&
-        this.userService.users.find(user => user.id === id);
+      this.user = this.userService.users && this.userService.users.find(user => user.id === id);
       if (!this.user) {
         this.fetchUser(id);
       } else {
@@ -54,19 +42,13 @@ export class UserComponent implements OnInit {
   createUserFormUsingFormBuilder() {
     this.userForm = this.fb.group({
       id: ['', [Validators.required]],
-      name: [
-        '',
-        [Validators.required, CustomValidators.forbiddenNames(['kartik'])]
-      ],
+      name: ['', [Validators.required, CustomValidators.forbiddenNames(['kartik'])]],
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       address: this.fb.group({
         street: ['', [Validators.required]]
       }),
-      hobbies: this.fb.array([
-        this.fb.control('h1', [Validators.required]),
-        this.fb.control('g1', [Validators.required])
-      ]),
+      hobbies: this.fb.array([this.fb.control('h1', [Validators.required]), this.fb.control('g1', [Validators.required])]),
       phone: ['', [Validators.required]],
       website: ['', [Validators.required]]
     });
@@ -78,19 +60,13 @@ export class UserComponent implements OnInit {
         updateOn: 'blur',
         validators: [Validators.required]
       }),
-      name: new FormControl('', [
-        Validators.required,
-        CustomValidators.forbiddenNames(['kartik'])
-      ]),
+      name: new FormControl('', [Validators.required, CustomValidators.forbiddenNames(['kartik'])]),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormGroup({
         street: new FormControl('', [Validators.required])
       }),
-      hobbies: new FormArray([
-        new FormControl('h1', [Validators.required]),
-        new FormControl('g1', [Validators.required])
-      ]),
+      hobbies: new FormArray([new FormControl('h1', [Validators.required]), new FormControl('g1', [Validators.required])]),
       phone: new FormControl('', [Validators.required]),
       website: new FormControl('', [Validators.required])
     });

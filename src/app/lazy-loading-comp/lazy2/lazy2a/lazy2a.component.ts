@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lazy2a.component.scss']
 })
 export class Lazy2aComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

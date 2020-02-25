@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthHeaderInterceptorService implements HttpInterceptor {
-
-  constructor() { }
+  constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('headers interceptor ..');

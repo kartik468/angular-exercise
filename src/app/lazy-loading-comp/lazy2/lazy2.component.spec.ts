@@ -8,9 +8,8 @@ describe('Lazy2Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Lazy2Component ]
-    })
-    .compileComponents();
+      declarations: [Lazy2Component]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
