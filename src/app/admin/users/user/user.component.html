@@ -19,7 +19,7 @@
             formControlName="name"
           />
           <div *ngIf="userForm.get('name').errors?.required" class="invalid-feedback">
-            Please choose a username.
+            Name can not be empty.
           </div>
           <div *ngIf="userForm.get('name').errors?.forbiddenName" class="invalid-feedback">
             Please choose different username.
@@ -54,5 +54,32 @@
     </form>
   </div>
   <pre>form user: {{ userForm.value | json }}</pre>
-  <pre>input user: {{ user | json }}</pre>
+  <!-- <pre>input user: {{ user | json }}</pre> -->
 </div>
+
+<br />
+<h3>Template driven form</h3>
+<form autocomplete="off" #tdUserForm="ngForm">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label class="control-label" for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        [(ngModel)]="tdFormUser.name"
+        required
+        [karForbiddenName]="['kartik']"
+        #nameControl="ngModel"
+      />
+      <div *ngIf="nameControl.errors?.required" class="invalid-feedback">
+        Name can not be empty.
+      </div>
+      <div *ngIf="nameControl.errors?.forbiddenName" class="invalid-feedback">
+        Please choose different username.
+      </div>
+    </div>
+  </div>
+</form>
+<pre>form user: {{ tdUserForm.value | json }}</pre>

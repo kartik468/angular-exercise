@@ -17,6 +17,7 @@ import { ChildComponent } from './service-example/child/child.component';
 import { LoggerInterceptorService } from './logger-interceptor.service';
 import { AuthHeaderInterceptorService } from './auth-header-interceptor.service';
 import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/lazy-load-parent.component';
+import { WithoutInjectableService } from './services/without-injectable.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/la
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptorService,
       multi: true
-    }
+    },
+    WithoutInjectableService
   ],
   bootstrap: [AppComponent]
 })

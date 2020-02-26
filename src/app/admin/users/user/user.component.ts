@@ -13,6 +13,11 @@ import { CustomValidators } from 'src/app/custom-validators';
 export class UserComponent implements OnInit {
   user: User;
 
+  tdFormUser = {
+    name: '',
+    email: ''
+  };
+
   userForm: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UsersService, private fb: FormBuilder) {}
