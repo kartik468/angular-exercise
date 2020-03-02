@@ -5,11 +5,14 @@ import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { CanDeactivateUserGuard } from './users/can-deactivate-user.guard';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       { path: 'users', component: UsersComponent },
       {

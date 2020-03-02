@@ -12,6 +12,7 @@ export class SimpleObservableComponent implements OnInit, OnDestroy {
   emittedValuePromise: string;
 
   subscription1: Subscription;
+  subscription2: Subscription;
 
   constructor() {}
 
@@ -22,6 +23,7 @@ export class SimpleObservableComponent implements OnInit, OnDestroy {
 
   simpleObservable() {
     const observable = new Observable<number>(subscriber => {
+      console.log('inside observable');
       subscriber.next(10);
 
       setTimeout(() => {
@@ -42,6 +44,10 @@ export class SimpleObservableComponent implements OnInit, OnDestroy {
       console.log('only last value emitted', val);
       this.emittedValue = val;
     });
+    this.subscription2 = observable.subscribe(val => {
+      console.log('only last value emitted', val);
+      this.emittedValue = val;
+    });
   }
 
   toPromiseExample() {
@@ -59,5 +65,6 @@ export class SimpleObservableComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 }

@@ -12,9 +12,27 @@ export class PromiseTestComponent implements OnInit {
   ngOnInit() {
     // promise calls eagerly. even there are no subscribers it is got executed.
     const p1 = new Promise((resolve, reject) => {
-      console.log('inside promise..');
-      resolve('kartik');
+      console.log('promise calls eagerly. even there are no subscribers it is got executed.');
+      console.log('this block get executed only once.. even though we have multiple subs.');
+      setTimeout(() => {
+        resolve('kartik');
+      }, 2000);
     });
+
+    setTimeout(() => {
+      p1.then(val => {
+        console.log(val);
+      });
+      p1.then(val => {
+        console.log(val);
+      });
+      p1.then(val => {
+        console.log(val);
+      });
+      p1.catch(err => {
+        console.log(err);
+      });
+    }, 1000);
 
     this.asyncTest();
   }

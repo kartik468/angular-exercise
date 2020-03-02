@@ -1,3 +1,4 @@
-<p>login works!</p>
+<br />
+<button *ngIf="!authService.isAuthenticated" class="btn btn-primary" (click)="login()">Login</button>
 
-<button class="btn btn-primary" (click)="login()">Login</button>
+<p *ngIf="authService.isAuthenticated">Logged in successfully..</p>

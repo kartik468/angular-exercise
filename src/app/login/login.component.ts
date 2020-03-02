@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   login() {
-    this.authService.isAuthenticated = true;
+    this.authService.login();
     console.log('authenticated..');
-    this.router.navigate(['/admin']);
+    // this.router.navigate(['/admin']);
   }
 }

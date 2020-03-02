@@ -1,4 +1,8 @@
-<p>admin works!</p>
+<div>
+  <button *ngIf="auth.isAuthenticated" class="btn btn-primary" (click)="onLogoutClick()">LogOut</button>
+  <p *ngIf="!auth.isAuthenticated">User logged out successfully..</p>
+</div>
+<hr />
 
 <div class="container-fluid">
   <div class="header-container">
