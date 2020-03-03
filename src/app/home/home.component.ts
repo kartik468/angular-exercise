@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { pairwise, startWith } from 'rxjs/operators';
 
 @Component({
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   devices = ['d1', 'd2', 'd3'];
 
   reactiveForm: FormGroup;
+  ratingControl: FormControl;
 
   constructor(private changeDetectorRef: ChangeDetectorRef, private fb: FormBuilder) {}
 
@@ -50,6 +51,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ratingControl = new FormControl();
+    // this.ratingControl.disable();
     // setTimeout(() => {
     //   this.selectedDevice = 'd3';
     // }, 2000);
