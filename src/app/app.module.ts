@@ -20,6 +20,8 @@ import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/la
 import { WithoutInjectableService } from './services/without-injectable.service';
 import { RatingInputComponent } from './misc/rating-input.component';
 
+// import { CustomerClaimsModule } from 'customer-claims';
+
 @NgModule({
   declarations: [
     AppComponent,

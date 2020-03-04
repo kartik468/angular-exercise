@@ -24,6 +24,7 @@ const routes: Routes = [
     path: 'rxjs',
     loadChildren: () => import('./observables/observables.module').then(m => m.ObservablesModule)
   },
+  { path: 'claims', loadChildren: () => import('./customer-claims-wrapper/claims.module').then(m => m.ClaimsModule) },
   { path: '**', component: PathNotFoundComponent }
 ];
 
