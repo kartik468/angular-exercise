@@ -3,30 +3,27 @@ import { Directive, OnInit, Input, ElementRef, HostBinding, HostListener, OnChan
 @Directive({
   selector: '[karCustomMaxLength]'
 })
-export class CustomMaxLengthDirective implements OnInit, OnChanges {
-  value: string;
+export class CustomMaxLengthDirective implements OnInit {
+  @Input('karCustomMaxLength') maxLength = 10;
 
-  @Input('karCustomMaxLength') maxLength: number;
+  @HostBinding('class.invalid') invalid = false;
 
-  @Input() inputValue: string;
-
-  @HostBinding('class.invalid') isInvalid: boolean;
-
-  @HostListener('input') onInputValueChange() {
-    this.value = this.elementRef.nativeElement.value;
-    this.isInvalid = this.value.length > this.maxLength ? true : false;
+  @HostListener('input', ['$event']) onInputChange(event) {
+    // const value = event.target.value;
+    const value: string = this.el.nativeElement.value;
+    console.log(value);
+    this.setValidity(value);
   }
 
-  constructor(private elementRef: ElementRef) {}
-
-  ngOnChanges() {
-    // console.log(this.inputValue);
+  setValidity(value) {
+    this.invalid = value.length > this.maxLength ? true : false;
   }
 
-  ngOnInit(): void {
-    console.log(this.elementRef.nativeElement.value);
-    this.value = this.inputValue;
-    // this.onInputValueChange();
-    this.isInvalid = this.value.length > this.maxLength ? true : false;
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    const value: string = this.el.nativeElement.value;
+    console.log(value);
+    this.setValidity(value);
   }
 }

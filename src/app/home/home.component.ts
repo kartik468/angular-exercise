@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   devices = ['d1', 'd2', 'd3'];
 
   reactiveForm: FormGroup;
+
+  nameControl: FormControl;
+
   ratingControl: FormControl;
 
   constructor(private changeDetectorRef: ChangeDetectorRef, private fb: FormBuilder) {}
@@ -51,8 +54,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ratingControl = new FormControl();
-    // this.ratingControl.disable();
+    this.nameControl = new FormControl('initial');
+    this.nameControl.valueChanges.subscribe(val => {
+      console.log(val);
+    });
+    setTimeout(() => {
+      this.nameControl.setValue('later');
+    }, 2000);
+    this.initRatingControl();
+
     // setTimeout(() => {
     //   this.selectedDevice = 'd3';
     // }, 2000);
@@ -80,5 +90,20 @@ export class HomeComponent implements OnInit {
       //   control.setValue(prev, { emitEvent: false });
       // }
     });
+  }
+
+  initRatingControl() {
+    this.ratingControl = new FormControl(2);
+    // this.ratingControl.disable();
+    // this.ratingControl.valueChanges.subscribe(val => {
+    //   console.log('rating control val: ', val);
+    // });
+
+    // setTimeout(() => {
+    //   this.ratingControl.setValue(4);
+    // }, 1000);
+    // setTimeout(() => {
+    //   this.ratingControl.setValue(3);
+    // }, 500);
   }
 }
