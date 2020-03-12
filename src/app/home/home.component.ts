@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 import { pairwise, startWith } from 'rxjs/operators';
 
 @Component({
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   nameControl: FormControl;
 
   ratingControl: FormControl;
+  ratingControlForm: FormGroup;
 
   constructor(private changeDetectorRef: ChangeDetectorRef, private fb: FormBuilder) {}
 
@@ -93,17 +94,24 @@ export class HomeComponent implements OnInit {
   }
 
   initRatingControl() {
-    this.ratingControl = new FormControl(2);
-    // this.ratingControl.disable();
-    // this.ratingControl.valueChanges.subscribe(val => {
+    // this.ratingControl = new FormControl(2);
+    // this.ratingControlNew = new FormControl(1);
+    // // this.ratingControlNew.disable();
+    // this.ratingControlNew.valueChanges.subscribe(val => {
     //   console.log('rating control val: ', val);
     // });
+    // setTimeout(() => {
+    //   this.ratingControlNew.setValue(4);
+    // }, 3000);
+    // setTimeout(() => {
+    //   this.ratingControlNew.setValue(3);
+    // }, 6000);
 
-    // setTimeout(() => {
-    //   this.ratingControl.setValue(4);
-    // }, 1000);
-    // setTimeout(() => {
-    //   this.ratingControl.setValue(3);
-    // }, 500);
+    const ratingControlValidator: ValidatorFn = control => {
+      return control.value === null || control.value === 0 ? { required: true } : null;
+    };
+    this.ratingControlForm = new FormGroup({
+      rating: new FormControl(null, { validators: [ratingControlValidator] })
+    });
   }
 }

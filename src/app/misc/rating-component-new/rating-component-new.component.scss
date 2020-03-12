@@ -1,0 +1,26 @@
+:host {
+  opacity: 1;
+  border: 1px solid;
+  padding: 5px;
+  margin: 5px;
+  display: block;
+
+  &.ng-invalid {
+    border: 1px solid red;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  .star-container {
+    cursor: default;
+  }
+}
+
+.star-container {
+  display: inline-block;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  cursor: pointer;
+}

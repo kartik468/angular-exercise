@@ -1,4 +1,8 @@
-<kar-rating-input [formControl]="ratingControl"></kar-rating-input>
+<!-- <kar-rating-input [formControl]="ratingControl"></kar-rating-input> -->
+<form [formGroup]="ratingControlForm">
+  <kar-rating-component-new formControlName="rating"></kar-rating-component-new>
+</form>
+{{ ratingControlForm.value | json }}
 
 <!-- <input type="text" [formControl]="nameControl" /> -->
 
