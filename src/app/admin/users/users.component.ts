@@ -17,6 +17,11 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
     });
+
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+      const userId = +paramMap.get('id');
+      console.log(userId);
+    });
   }
 
   onUserClick(user: User) {

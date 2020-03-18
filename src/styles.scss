@@ -13,5 +13,5 @@
 .ng-touched.ng-invalid,
 .ng-dirty.ng-invalid {
   @extend .is-invalid;
-  background-image: none !important;
+  // background-image: none !important;
 }

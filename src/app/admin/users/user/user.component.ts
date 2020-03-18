@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../users.service';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
@@ -13,6 +13,8 @@ import { CustomValidators } from 'src/app/custom-validators';
 export class UserComponent implements OnInit {
   user: User;
 
+  userId: number;
+
   tdFormUser = {
     name: '',
     email: ''
@@ -20,7 +22,7 @@ export class UserComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UsersService, private fb: FormBuilder) {}
+  constructor(private activatedRoute: ActivatedRoute, private userService: UsersService, private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     // this.createUserFormUsingFormBuilder();
@@ -28,6 +30,7 @@ export class UserComponent implements OnInit {
     // const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = +paramMap.get('id');
+      this.userId = id;
       this.user = this.userService.users && this.userService.users.find(user => user.id === id);
       if (!this.user) {
         this.fetchUser(id);
@@ -51,7 +54,9 @@ export class UserComponent implements OnInit {
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       address: this.fb.group({
-        street: ['', [Validators.required]]
+        street: ['', [Validators.required]],
+        city: ['', [Validators.required]],
+        zipcode: ['', [Validators.required]]
       }),
       hobbies: this.fb.array([this.fb.control('h1', [Validators.required]), this.fb.control('g1', [Validators.required])]),
       phone: ['', [Validators.required]],
@@ -87,6 +92,10 @@ export class UserComponent implements OnInit {
 
   onAddHobby() {
     this.hobbiesFormArray.push(new FormControl('', [Validators.required]));
+  }
+
+  navigateToUsers() {
+    this.router.navigate(['../../users', { id: this.userId }], { relativeTo: this.activatedRoute });
   }
 
   canDeactivate(): boolean {

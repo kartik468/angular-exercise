@@ -41,11 +41,11 @@ export class SimpleObservableComponent implements OnInit, OnDestroy {
     );
 
     this.subscription1 = observable.subscribe(val => {
-      console.log('only last value emitted', val);
+      console.log('only last value emitted because of last pipe function', val);
       this.emittedValue = val;
     });
     this.subscription2 = observable.subscribe(val => {
-      console.log('only last value emitted', val);
+      console.log('only last value emitted because of last pipe function', val);
       this.emittedValue = val;
     });
   }
