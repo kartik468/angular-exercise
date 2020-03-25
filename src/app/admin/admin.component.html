@@ -1,6 +1,6 @@
 <div>
-  <button *ngIf="auth.isAuthenticated" class="btn btn-primary" (click)="onLogoutClick()">LogOut</button>
-  <p *ngIf="!auth.isAuthenticated">User logged out successfully..</p>
+  <button *ngIf="auth.isAuthenticated" class="btn btn-primary logout-btn" (click)="onLogoutClick()">LogOut</button>
+  <p *ngIf="!auth.isAuthenticated" class="logout-msg">User logged out successfully..</p>
 </div>
 <hr />
 

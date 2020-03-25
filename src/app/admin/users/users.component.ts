@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  selectedUserId: number;
+
   users: User[];
 
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {}
@@ -19,8 +21,8 @@ export class UsersComponent implements OnInit {
     });
 
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      const userId = +paramMap.get('id');
-      console.log(userId);
+      this.selectedUserId = +paramMap.get('id');
+      console.log(this.selectedUserId);
     });
   }
 

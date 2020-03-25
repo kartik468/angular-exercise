@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ApplicationRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { WithoutInjectableService } from './services/without-injectable.service';
 
 @Component({
@@ -7,23 +7,19 @@ import { WithoutInjectableService } from './services/without-injectable.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'kartik-site';
+  title = 'App Component';
 
-  inputString1 = '1';
-  inputString2 = '2';
+  inputString1 = 'initial value 1';
+  inputString2 = 'initial value 2';
   inputObj: { name: string } = { name: '3' };
 
-  constructor(
-    private withoutInjectableService: WithoutInjectableService,
-    private cfRef: ChangeDetectorRef,
-    private appRef: ApplicationRef
-  ) {}
+  constructor(private withoutInjectableService: WithoutInjectableService) {}
 
   ngOnInit() {
     console.log(this.withoutInjectableService.getData());
     setTimeout(() => {
       this.updateLifeCycleHooksProps();
-    }, 10000);
+    }, 2000);
   }
 
   ngAfterViewInit() {
@@ -38,15 +34,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     // this error occurs only in development mode because in development mode.
     // it runs the second digest cycle performing verification operations.
     setTimeout(() => {
-      this.inputString1 = '1 new';
+      this.inputString1 = 'input string 1 new value';
     }, 0);
   }
 
   updateLifeCycleHooksProps() {
     // ngOnChanges only called when there are pure changes
     // you will find these two references in ngOnChanges of lifecycle comp
-    this.inputString1 = 'inputString1';
-    this.inputString2 = 'inputString2';
+    this.inputString1 = 'inputString1 after timeout';
+    this.inputString2 = 'inputString2 after timeout';
 
     // you will not see the reference for inputObj in ngOnChanges of lifecycle comp
     // because it is not a pure change

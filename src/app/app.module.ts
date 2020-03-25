@@ -18,7 +18,6 @@ import { LoggerInterceptorService } from './logger-interceptor.service';
 import { AuthHeaderInterceptorService } from './auth-header-interceptor.service';
 import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/lazy-load-parent.component';
 import { WithoutInjectableService } from './services/without-injectable.service';
-import { RatingInputComponent } from './misc/rating-input.component';
 import { LifecycleHookComponent } from './misc/lifecycle-hook/lifecycle-hook.component';
 import { RatingComponentNewComponent } from './misc/rating-component-new/rating-component-new.component';
 
@@ -37,7 +36,6 @@ import { RatingComponentNewComponent } from './misc/rating-component-new/rating-
     ParentComponent,
     ChildComponent,
     LazyLoadParentComponent,
-    RatingInputComponent,
     LifecycleHookComponent,
     RatingComponentNewComponent
   ],

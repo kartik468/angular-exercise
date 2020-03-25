@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   isAuthenticated = false;
 
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
   isUserLoggedIn() {
     return this.isAuthenticated;
@@ -14,9 +15,11 @@ export class AuthService {
 
   login() {
     this.isAuthenticated = true;
+    this.messageService.pushMessage('user logged in');
   }
 
   logout() {
     this.isAuthenticated = false;
+    this.messageService.pushMessage('user logged out');
   }
 }

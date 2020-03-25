@@ -1,6 +1,12 @@
 <p>rating-component-new works!</p>
 <div [ngClass]="{ disabled: disabled }">
-  <div class="star-container" *ngFor="let star of stars; let i = index" (click)="onStarClick(star, i)">
+  <div
+    class="star-container"
+    [attr.tabindex]="0"
+    *ngFor="let star of stars; let i = index"
+    (click)="onStarClick(star, i)"
+    (keydown.enter)="onStarClick(star, i)"
+  >
     <ng-container *ngIf="star">⭐</ng-container>
     <ng-container *ngIf="!star">.</ng-container>
   </div>

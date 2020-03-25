@@ -20,7 +20,7 @@ export class RatingComponentNewComponent implements ControlValueAccessor {
 
   maxRating = 5;
 
-  stars: boolean[];
+  stars: boolean[] = Array(this.maxRating);
 
   disabled = false;
 
@@ -35,7 +35,15 @@ export class RatingComponentNewComponent implements ControlValueAccessor {
   // }
 
   setStarsArray() {
-    this.stars = _.fill(Array(this.maxRating), true, 0, this.rating);
+    // this.stars = _.fill(Array(this.maxRating), true, 0, this.rating);
+    for (let index = 0; index < this.stars.length; index++) {
+      // const starred = this.stars[index];
+      if (index < this.rating) {
+        this.stars[index] = true;
+      } else {
+        this.stars[index] = false;
+      }
+    }
   }
 
   onStarClick(starred: boolean, index: number) {

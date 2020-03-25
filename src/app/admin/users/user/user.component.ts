@@ -47,22 +47,22 @@ export class UserComponent implements OnInit {
     });
   }
 
-  createUserFormUsingFormBuilder() {
-    this.userForm = this.fb.group({
-      id: ['', [Validators.required]],
-      name: ['', [Validators.required, CustomValidators.forbiddenNames(['kartik'])]],
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      address: this.fb.group({
-        street: ['', [Validators.required]],
-        city: ['', [Validators.required]],
-        zipcode: ['', [Validators.required]]
-      }),
-      hobbies: this.fb.array([this.fb.control('h1', [Validators.required]), this.fb.control('g1', [Validators.required])]),
-      phone: ['', [Validators.required]],
-      website: ['', [Validators.required]]
-    });
-  }
+  // createUserFormUsingFormBuilder() {
+  //   this.userForm = this.fb.group({
+  //     id: ['', [Validators.required]],
+  //     name: ['', [Validators.required, CustomValidators.forbiddenNames(['kartik'])]],
+  //     username: ['', [Validators.required]],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     address: this.fb.group({
+  //       street: ['', [Validators.required]],
+  //       city: ['', [Validators.required]],
+  //       zipcode: ['', [Validators.required]]
+  //     }),
+  //     hobbies: this.fb.array([this.fb.control('h1', [Validators.required]), this.fb.control('g1', [Validators.required])]),
+  //     phone: ['', [Validators.required]],
+  //     website: ['', [Validators.required]]
+  //   });
+  // }
 
   createUserForm() {
     this.userForm = new FormGroup({

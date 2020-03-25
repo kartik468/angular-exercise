@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
       return control.value === null || control.value === 0 ? { required: true } : null;
     };
     this.ratingControlForm = new FormGroup({
-      rating: new FormControl(null, { validators: [ratingControlValidator] })
+      rating: new FormControl(3, { validators: [ratingControlValidator] })
     });
   }
 }

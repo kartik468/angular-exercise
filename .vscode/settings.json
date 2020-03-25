@@ -15,5 +15,6 @@
       "statusBarItem.hoverBackground": "#00cccc",
       "statusBar.foreground": "#15202b"
     },
-    "peacock.color": "cyan"
+    "peacock.color": "cyan",
+    "editor.formatOnSave": true
 }

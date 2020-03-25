@@ -11,7 +11,7 @@ export class UsPhonePipe implements PipeTransform {
     // console.log(value);
     // console.log(this.regex.test(value));
     // console.log(value.match(this.regex));
-    const matches = value.match(this.regex1);
+    // const matches = value.match(this.regex1);
     // console.log(matches);
     // console.log(value.replace(this.regex1, '$<first>-$2'));
     const transformedValue = value.replace(this.regex, '$1-$2');

@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges, DoCheck } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
 
 // tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
@@ -17,7 +16,7 @@ export class LifecycleHookComponent implements OnInit, OnChanges, DoCheck {
   @Input()
   inputObj: { name: string };
 
-  constructor(private appComp: AppComponent) {}
+  constructor() {}
 
   ngOnInit(): void {
     console.log('life cycle hook component ngOnInit');

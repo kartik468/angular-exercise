@@ -1,7 +1,7 @@
 <br />
-<button class="btn btn-primary" (click)="navigateToUsers()">Back</button>
+<button class="btn btn-primary back-button" (click)="navigateToUsers()">Back</button>
 <div class="container-fluid" *ngIf="user">
-  <h5>User {{ user.name }}!</h5>
+  <h5 class="user-name-title">User {{ user.name }}!</h5>
   <div>
     <h5>Edit user</h5>
     <h6>form valid: {{ userForm.valid }}</h6>
@@ -52,7 +52,7 @@
           <input type="text" class="form-control" [formControlName]="i" [ngClass]="{ 'is-invalid': hobby.errors?.required }" />
         </div>
       </div>
-      <div class="btn btn-primary" (click)="onAddHobby()">Add Hobby</div>
+      <div class="btn btn-primary add-hobby" (click)="onAddHobby()">Add Hobby</div>
     </form>
   </div>
   <pre>form user: {{ userForm.value | json }}</pre>
