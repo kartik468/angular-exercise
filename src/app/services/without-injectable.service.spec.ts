@@ -6,7 +6,9 @@ describe('WithoutInjectableService', () => {
   let service: WithoutInjectableService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [WithoutInjectableService]
+    });
     service = TestBed.inject(WithoutInjectableService);
   });
 
