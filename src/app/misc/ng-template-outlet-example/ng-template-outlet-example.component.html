@@ -1,0 +1,16 @@
+<hr />
+<h5>NgTemplateOutlet Example</h5>
+<ng-container *ngTemplateOutlet="greet"></ng-container>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+<hr />
+
+<ng-template #greet>
+  <div>Hello</div>
+</ng-template>
+<ng-template #eng let-name>
+  <div>Hello {{ name }}!</div>
+</ng-template>
+<ng-template #svk let-person="localSk">
+  <div>Ahoj {{ person }}!</div>
+</ng-template>

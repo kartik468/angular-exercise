@@ -20,6 +20,7 @@ import { LazyLoadParentComponent } from './lazy-loading-comp/lazy-load-parent/la
 import { WithoutInjectableService } from './services/without-injectable.service';
 import { LifecycleHookComponent } from './misc/lifecycle-hook/lifecycle-hook.component';
 import { RatingComponentNewComponent } from './misc/rating-component-new/rating-component-new.component';
+import { NgTemplateOutletExampleComponent } from './misc/ng-template-outlet-example/ng-template-outlet-example.component';
 
 // import { CustomerClaimsModule } from 'customer-claims';
 
@@ -37,7 +38,8 @@ import { RatingComponentNewComponent } from './misc/rating-component-new/rating-
     ChildComponent,
     LazyLoadParentComponent,
     LifecycleHookComponent,
-    RatingComponentNewComponent
+    RatingComponentNewComponent,
+    NgTemplateOutletExampleComponent
   ],
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [
