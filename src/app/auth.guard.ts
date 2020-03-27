@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     if (authenticated) {
       return authenticated;
     }
-    return this.router.createUrlTree(['/']);
+    return this.router.createUrlTree(['/login']);
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,
@@ -39,7 +39,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     const authenticated = this.authService.isUserLoggedIn();
     if (!authenticated) {
-      this.router.navigate(['/']);
+      confirm('Log in first');
+      this.router.navigate(['/login']);
     }
     return authenticated;
   }
