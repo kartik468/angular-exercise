@@ -8,9 +8,13 @@
 <ng-template #greet>
   <div>Hello</div>
 </ng-template>
+
+<!-- taking value from $implicit -->
 <ng-template #eng let-name>
   <div>Hello {{ name }}!</div>
 </ng-template>
+
+<!-- taking value from localSk from myContext object and assigned it to person -->
 <ng-template #svk let-person="localSk">
   <div>Ahoj {{ person }}!</div>
 </ng-template>

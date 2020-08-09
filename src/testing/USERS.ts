@@ -6,6 +6,7 @@ export const USERS: User[] = [
     name: 'Leanne Graham',
     username: 'Bret',
     email: 'Sincere@april.biz',
+    salary: 25000,
     address: {
       street: 'Kulas Light',
       suite: 'Apt. 556',
@@ -29,6 +30,7 @@ export const USERS: User[] = [
     name: 'Ervin Howell',
     username: 'Antonette',
     email: 'Shanna@melissa.tv',
+    salary: 20000,
     address: {
       street: 'Victor Plains',
       suite: 'Suite 879',
@@ -52,6 +54,7 @@ export const USERS: User[] = [
     name: 'Clementine Bauch',
     username: 'Samantha',
     email: 'Nathan@yesenia.net',
+    salary: 35000,
     address: {
       street: 'Douglas Extension',
       suite: 'Suite 847',
@@ -75,6 +78,7 @@ export const USERS: User[] = [
     name: 'Patricia Lebsack',
     username: 'Karianne',
     email: 'Julianne.OConner@kory.org',
+    salary: 45000,
     address: {
       street: 'Hoeger Mall',
       suite: 'Apt. 692',
@@ -98,6 +102,7 @@ export const USERS: User[] = [
     name: 'Chelsey Dietrich',
     username: 'Kamren',
     email: 'Lucio_Hettinger@annie.ca',
+    salary: 125000,
     address: {
       street: 'Skiles Walks',
       suite: 'Suite 351',
@@ -121,6 +126,7 @@ export const USERS: User[] = [
     name: 'Mrs. Dennis Schulist',
     username: 'Leopoldo_Corkery',
     email: 'Karley_Dach@jasper.info',
+    salary: 25000,
     address: {
       street: 'Norberto Crossing',
       suite: 'Apt. 950',
@@ -144,6 +150,7 @@ export const USERS: User[] = [
     name: 'Kurtis Weissnat',
     username: 'Elwyn.Skiles',
     email: 'Telly.Hoeger@billy.biz',
+    salary: 25000,
     address: {
       street: 'Rex Trail',
       suite: 'Suite 280',
@@ -167,6 +174,7 @@ export const USERS: User[] = [
     name: 'Nicholas Runolfsdottir V',
     username: 'Maxime_Nienow',
     email: 'Sherwood@rosamond.me',
+    salary: 325000,
     address: {
       street: 'Ellsworth Summit',
       suite: 'Suite 729',
@@ -190,6 +198,7 @@ export const USERS: User[] = [
     name: 'Glenna Reichert',
     username: 'Delphine',
     email: 'Chaim_McDermott@dana.io',
+    salary: 25000,
     address: {
       street: 'Dayna Park',
       suite: 'Suite 449',
@@ -213,6 +222,7 @@ export const USERS: User[] = [
     name: 'Clementina DuBuque',
     username: 'Moriah.Stanton',
     email: 'Rey.Padberg@karina.biz',
+    salary: 45000,
     address: {
       street: 'Kattie Turnpike',
       suite: 'Suite 198',

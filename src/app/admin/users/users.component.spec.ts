@@ -12,10 +12,13 @@ describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
 
-  const usersServiceSpy = jasmine.createSpyObj('UserService', ['getUsers']);
-  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+  let usersServiceSpy: jasmine.SpyObj<UsersService>;
+  let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async(() => {
+    usersServiceSpy = jasmine.createSpyObj('UserService', ['getUsers']);
+    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+
     TestBed.configureTestingModule({
       declarations: [UsersComponent],
       providers: [
