@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -22,6 +22,7 @@ import { LifecycleHookComponent } from './misc/lifecycle-hook/lifecycle-hook.com
 import { RatingComponentNewComponent } from './misc/rating-component-new/rating-component-new.component';
 import { NgTemplateOutletExampleComponent } from './misc/ng-template-outlet-example/ng-template-outlet-example.component';
 import { HeaderComponent } from './misc/header/header.component';
+import { ErrorHandlerService } from './services/error-handler.service';
 
 // import { CustomerClaimsModule } from 'customer-claims';
 
@@ -45,6 +46,7 @@ import { HeaderComponent } from './misc/header/header.component';
   ],
   imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoggerInterceptorService,

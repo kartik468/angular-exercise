@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { WithoutInjectableService } from './services/without-injectable.service';
+import { AppInsightsInstrumentService } from './services/app-insights-instrument.service';
 
 @Component({
   selector: 'kar-root',
@@ -13,7 +14,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   inputString2 = 'initial value 2';
   inputObj: { name: string } = { name: '3' };
 
-  constructor(private withoutInjectableService: WithoutInjectableService) {}
+  constructor(
+    private withoutInjectableService: WithoutInjectableService,
+    private appInsightsInstrumentService: AppInsightsInstrumentService
+  ) {}
 
   ngOnInit() {
     console.log(this.withoutInjectableService.getData());

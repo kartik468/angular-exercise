@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "@microsoft/applicationinsights-web": "^2.5.7",
     "bootstrap": "^4.4.1",
     "customer-claims": "0.0.4",
     "karma-parallel": "^0.3.1",

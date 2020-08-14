@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    throw new Error('test error');
     this.userService.getUsers().subscribe(users => {
       this.users = users;
     });
