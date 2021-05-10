@@ -26,7 +26,7 @@
     "bootstrap": "^4.4.1",
     "customer-claims": "0.0.4",
     "karma-parallel": "^0.3.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
